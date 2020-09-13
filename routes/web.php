@@ -25,3 +25,8 @@ Route::get('/cars', 'CarController@index');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::prefix('admin')->group(function () {
+    Route::get('units', 'Admin\UnitController@index');
+    Route::get('units/create', 'Admin\UnitController@create');
+});

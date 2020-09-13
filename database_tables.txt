@@ -34,3 +34,10 @@ uuid
 *email
 password
 unit_id (fk units->uuid)
+role (enum admin, auditor, user)
+
+
+
+
+
+
