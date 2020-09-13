@@ -1,0 +1,36 @@
+units (city unit a single entity)
+-----------------
+uuid,
+name
+address
+contact (office phone number)
+parent_id (fk units->uuid )
+states
+
+
+
+contacts
+---------------
+uuid pk
+*name
+contact
+address
+contact_type fk (contact_types)(rukn, karkun, hamdard)
+designation
+
+
+
+contact_types
+-----------------
+uuid
+*name (ie, rukn, karkun, hamdard)
+description
+
+
+users
+---------------
+uuid
+*name
+*email
+password
+unit_id (fk units->uuid)
