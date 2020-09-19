@@ -20,7 +20,7 @@
 </head>
 <body class="hold-transition sidebar-mini layout-boxed">
 <!-- Site wrapper -->
-<div class="wrapper">
+<div class="wrapper elevation-4">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -34,7 +34,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="z-index: 0 !important;">
     @yield('content')
   </div>
   <!-- /.content-wrapper -->
@@ -43,11 +43,7 @@
     @include('commons.footer')
   </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+  
 </div>
 <!-- ./wrapper -->
 

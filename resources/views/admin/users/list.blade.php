@@ -8,7 +8,7 @@
 <div class="container-fluid">
     <div class="row mb-2">
     <div class="col-sm-6">
-        <h1>Units</h1>
+        <h1>Users</h1>
     </div>
     <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-        Create a new <a href="{{ url('/admin/units/create') }}">Unit <i class="fas fa-user-plus"></i></a>
+        Register a new <a href="{{ url('/admin/users/create') }}">User <i class="fas fa-user-plus"></i></a>
         </div>
     </div>
     
@@ -49,16 +49,18 @@
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Name</th>
-                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Role</th>
                     <th style="width: 40px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($units as $unit)
+                    @foreach ($users as $user)
                     <tr>
                         <td>1.</td>
-                        <td><a href="{{ url('admin/units/'.$unit->id) }}">{{$unit->name}}</a></td>
-                        <td>{{$unit->contact}}</td>
+                        <td><a href="{{ url('admin/users/'.$user->id) }}">{{$user->name}}</a></td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->role}}</td>
                         <td><span class="fas fa-edit"></span> <span class="fas fa-times"></span></td>
                       </tr>
                     @endforeach
@@ -67,12 +69,8 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
-            <ul class="pagination pagination-sm m-0 float-right">
-                <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+            <ul class="float-right">
+                {{ $users->links() }}
             </ul>
         </div>
         <!-- /.card-footer-->

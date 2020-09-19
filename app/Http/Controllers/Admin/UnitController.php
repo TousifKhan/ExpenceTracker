@@ -38,7 +38,21 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedAttributes = $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact' => 'required',
+            'state' => 'required'
+        ]);
+
+        $attributes = array_merge($validatedAttributes, [
+            'main_unit' => $request->main_unit == 'on',
+            'parant_id' => $request->parent_id
+        ]);
+        
+        Unit::create($attributes);
+
+        return redirect('admin/units');
     }
 
     /**
@@ -50,6 +64,7 @@ class UnitController extends Controller
     public function show(Unit $unit)
     {
         //
+
     }
 
     /**
@@ -60,7 +75,7 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        return view('admin.units.edit', ['unit' => $unit]);
     }
 
     /**
@@ -72,7 +87,21 @@ class UnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        //
+        $validatedAttributes = $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'contact' => 'required',
+            'state' => 'required'
+        ]);
+
+        $attributes = array_merge($validatedAttributes, [
+            'main_unit' => $request->main_unit == 'on',
+            'parant_id' => $request->parent_id
+        ]);
+        
+        $unit->update($attributes);
+
+        return redirect('admin/units');
     }
 
     /**

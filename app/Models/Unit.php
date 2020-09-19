@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Unit extends Model
 {
-    use SoftDeletes;
+    //use SoftDeletes;
 
     protected $fillable = [
-        'name', 'address', 'contact', 'states'
+        'name', 'address', 'contact', 'state', 'main_unit', 'role'
+    ];
+
+    protected $casts = [
+        'main_unit' => 'boolean'
     ];
 
 }

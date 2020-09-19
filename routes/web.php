@@ -27,6 +27,16 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::prefix('admin')->group(function () {
-    Route::get('units', 'Admin\UnitController@index');
-    Route::get('units/create', 'Admin\UnitController@create');
+    //Admin/Users
+    Route::get('units',         'Admin\UnitController@index');
+    Route::get('units/create',  'Admin\UnitController@create');
+    Route::get('units/{unit}',  'Admin\UnitController@edit');
+    Route::post('units',        'Admin\UnitController@store');
+    Route::put('units/{unit}',  'Admin\UnitController@update');
+    //Admin/Users
+    Route::get('users',         'Admin\UserController@index');
+    Route::get('users/create',  'Admin\UserController@create');
+    Route::get('users/{user}',  'Admin\UserController@edit');
+    Route::post('users',        'Admin\UserController@store');
+    Route::put('users/{user}',  'Admin\UserController@update');
 });
