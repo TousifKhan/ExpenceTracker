@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use GoldSpecDigital\LaravelEloquentUUID\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Models\Unit;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -38,4 +39,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function unit() {
+        //TODO: withDefault is a temp fix, will remove it later
+        return $this->belongsTo(Unit::class)->withDefault(['id'=> Str::random(10)]);
+    }
 }

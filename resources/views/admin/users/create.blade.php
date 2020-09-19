@@ -23,7 +23,7 @@
             <div class="card-body">
 
             <div class="form-group row">
-                <label for="unitname" class="col-sm-2 col-form-label">User n-ame</label>
+                <label for="unitname" class="col-sm-2 col-form-label">User name</label>
                 <div class="col-sm-6 ">
                 <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="User Name" value="{{ old('name') }}">
                     @error('name')
@@ -31,7 +31,7 @@
                     @enderror
                 </div>
             </div>
-            
+
             <div class="form-group row">
                 <label for="email" class="col-sm-2 col-form-label">Email Address</label>
                 <div class="col-sm-8">

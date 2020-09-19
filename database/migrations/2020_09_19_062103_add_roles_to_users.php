@@ -14,7 +14,7 @@ class AddRolesToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('unit_id')->after('remember_token')->nullable();
+            $table->uuid('unit_id')->after('remember_token')->nullable();
             $table->enum('role', ['admin', 'auditor', 'user'])->after('unit_id')->nullable(false);
         });
     }

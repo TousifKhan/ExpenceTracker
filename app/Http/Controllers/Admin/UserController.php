@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.users.list', ['users' => $users]);
     }
 
@@ -79,7 +79,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('admin.users.edit', [
+            'user' => $user,
+            'units' => Unit::all('id', 'name')
+        ]);
     }
 
     /**
@@ -91,7 +94,20 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $attributes = $request->validate([
+            'name'  => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'role'  => ['required', Rule::in(['admin', 'auditor', 'user'])]
+        ]);
+
+        $attributes = array_merge($attributes, [
+            'unit_id'   => $request->unit_id,
+            'role'      => $request->role
+        ]);
+
+        $user->update($attributes);
+
+        return redirect('admin/users');
     }
 
     /**

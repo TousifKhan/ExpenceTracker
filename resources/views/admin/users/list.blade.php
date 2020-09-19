@@ -51,7 +51,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th style="width: 40px">Action</th>
+                    <th style="width: 80px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -61,7 +61,7 @@
                         <td><a href="{{ url('admin/users/'.$user->id) }}">{{$user->name}}</a></td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->role}}</td>
-                        <td><span class="fas fa-edit"></span> <span class="fas fa-times"></span></td>
+                        <td><span class="fas fa-user-edit"></span>&nbsp;&nbsp;<span class="fas fa-user-slash"></span></td>
                       </tr>
                     @endforeach
                 </tbody>
