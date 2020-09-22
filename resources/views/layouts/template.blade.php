@@ -30,7 +30,14 @@
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    @include('commons.sidebar')
+    @can('admin')
+      @include('commons.sidebar')
+    @elsecan('auditor')
+      @include('commons.user-sidebar')
+    @endcan
+    @can('user')
+      @include('commons.user-sidebar')
+    @endcan
   </aside>
 
   <!-- Content Wrapper. Contains page content -->

@@ -2,14 +2,14 @@
 <!-- Left navbar links -->
 <ul class="navbar-nav">
   <li class="nav-item">
-    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-  </li>
-  <li class="nav-item d-none d-sm-inline-block">
-    <a href="../../index3.html" class="nav-link">Home</a>
-  </li>
-  <li class="nav-item d-none d-sm-inline-block">
-    <a href="#" class="nav-link">Contact</a>
-  </li>
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="../../index3.html" class="nav-link">Home</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block">
+      <a href="#" class="nav-link">Contact</a>
+    </li>
 </ul>
 
 <!-- SEARCH FORM -->
@@ -124,6 +124,11 @@
         <p>
           {{ Auth::user()->name }}
           <small>Member since Nov. 2012</small>
+          @can('admin')
+            <small>Admin Role</small>
+          @elsecan('auditor')
+          <small>Auditor Role</small>
+          @endcan
         </p>
       </li>
       

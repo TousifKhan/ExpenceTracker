@@ -18,15 +18,14 @@ Route::get('/users', function () {
     return view('users', ['fatherName' => 'Zahir Khan']);
 });
 
-Route::get('/', 'AppController@index');
+Route::get('/', 'AppController@index')->name('landed');
+Route::get('/app', 'AppController@index')->name('app');
+Route::get('/authenticated', 'AppController@authenticated')->name('authenticated');
 
-Route::get('/cars/create', 'CarController@create');
-Route::get('/cars', 'CarController@index');
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
 Route::prefix('admin')->group(function () {
+    Route::get('dashboard',     'Admin\AdminDashboardController@index')->name('admin_dashboard');
     //Admin/Users
     Route::get('units',         'Admin\UnitController@index');
     Route::get('units/create',  'Admin\UnitController@create');
@@ -39,4 +38,10 @@ Route::prefix('admin')->group(function () {
     Route::get('users/{user}',  'Admin\UserController@edit');
     Route::post('users',        'Admin\UserController@store');
     Route::put('users/{user}',  'Admin\UserController@update');
+
+});
+
+Route::prefix('user')->group(function () {
+    Route::get('dashboard',     'User\UserDashboardController@index')->name('user_dashboard');
+    
 });
