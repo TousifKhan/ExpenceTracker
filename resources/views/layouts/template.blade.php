@@ -32,10 +32,7 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     @can('admin')
       @include('commons.sidebar')
-    @elsecan('auditor')
-      @include('commons.user-sidebar')
-    @endcan
-    @can('user')
+    @elsecan('no-admin')
       @include('commons.user-sidebar')
     @endcan
   </aside>

@@ -57,7 +57,7 @@
                     @foreach ($units as $unit)
                     <tr>
                         <td>1.</td>
-                        <td><a href="{{ url('admin/units/'.$unit->id) }}">{{$unit->name}}</a></td>
+                        <td><a href="{{ url('admin/units/'.$unit->id.'/edit') }}">{{$unit->name}}</a></td>
                         <td>{{$unit->contact}}</td>
                         <td><span class="fas fa-edit"></span> <span class="fas fa-times"></span></td>
                       </tr>

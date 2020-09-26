@@ -24,24 +24,17 @@ Route::get('/authenticated', 'AppController@authenticated')->name('authenticated
 
 Auth::routes();
 
-Route::prefix('admin')->group(function () {
+//Admin Route
+Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
     Route::get('dashboard',     'Admin\AdminDashboardController@index')->name('admin_dashboard');
-    //Admin/Users
-    Route::get('units',         'Admin\UnitController@index');
-    Route::get('units/create',  'Admin\UnitController@create');
-    Route::get('units/{unit}',  'Admin\UnitController@edit');
-    Route::post('units',        'Admin\UnitController@store');
-    Route::put('units/{unit}',  'Admin\UnitController@update');
-    //Admin/Users
-    Route::get('users',         'Admin\UserController@index');
-    Route::get('users/create',  'Admin\UserController@create');
-    Route::get('users/{user}',  'Admin\UserController@edit');
-    Route::post('users',        'Admin\UserController@store');
-    Route::put('users/{user}',  'Admin\UserController@update');
-
+    Route::resources([
+        'units' =>  'Admin\UnitController',
+        'users' =>  'Admin\UserController'
+    ]);
+    //Route::resource('units',     'Admin\UnitController');
+    //Route::resource('users',     'Admin\UserController');
 });
 
-Route::prefix('user')->group(function () {
+Route::group(['prefix' => 'user', 'middleware' => []], function () {
     Route::get('dashboard',     'User\UserDashboardController@index')->name('user_dashboard');
-    
 });

@@ -58,7 +58,7 @@
                     @foreach ($users as $user)
                     <tr>
                         <td>1.</td>
-                        <td><a href="{{ url('admin/users/'.$user->id) }}">{{$user->name}}</a></td>
+                        <td><a href="{{ url('admin/users/'.$user->id.'/edit') }}">{{$user->name}}</a></td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->role}}</td>
                         <td><span class="fas fa-user-edit"></span>&nbsp;&nbsp;<span class="fas fa-user-slash"></span></td>
