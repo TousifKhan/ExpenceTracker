@@ -31,8 +31,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
         'units' =>  'Admin\UnitController',
         'users' =>  'Admin\UserController'
     ]);
-    //Route::resource('units',     'Admin\UnitController');
-    //Route::resource('users',     'Admin\UserController');
+    Route::get('users/{user}/access-history',     'Admin\UserController@accessHistory');
+
+    //Contact Type
+    Route::get('contacts',     'Admin\ContactTypeController@index');
+    Route::resource('contact-type',   'Admin\ContactTypeController');
+    //Route::post('contacts/type/create',  'Admin\ContactTypeController@store');
+
+    
 });
 
 Route::group(['prefix' => 'user', 'middleware' => []], function () {

@@ -26,22 +26,10 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="../../index.html" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Dashboard v1</p>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a href="../../index2.html" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Dashboard v2</p>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a href="../../index3.html" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Dashboard v3</p>
-        </a>
+            <a href="../../index.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard v1</p>
+            </a>
         </li>
     </ul>
     </li>
@@ -57,30 +45,23 @@
     </li>
     
     <li class="nav-item has-treeview menu-open">
-    <a href="#" class="nav-link active">
-        <i class="nav-icon fas fa-chart-pie"></i>
-        <p>
-        Charts
-        <i class="right fas fa-angle-left"></i>
-        </p>
-    </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-        <a href="{{ url('/admin/units') }}" class="nav-link">
+        <a href="{{ url('/admin/units') }}" class="nav-link {{ Request::is('admin/units') ? 'active' : '' }}">
             <i class="fas fa-building nav-icon"></i>
             <p>Units</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="{{ url('/admin/users') }}" class="nav-link">
+        <a href="{{ url('/admin/users') }}" class="nav-link {{ Request::is('admin/users') ? 'active' : '' }}">
             <i class="fas fa-users nav-icon"></i>
             <p>Users</p>
         </a>
         </li>
         <li class="nav-item">
-        <a href="../charts/inline.html" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Inline</p>
+        <a href="{{ url('/admin/contacts') }}" class="nav-link {{ Request::is('admin/contacts') ? 'active' : '' }}">
+            <i class="far fa-address-card nav-icon"></i>
+            <p>Contacts</p>
         </a>
         </li>
     </ul>

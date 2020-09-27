@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarsTable extends Migration
+class CreateContactTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cars', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            //$table->uuid('user_id')
-            $table->string('name');
-            $table->string('make');
-            $table->integer('make_year');
-            $table->timestamps();
+        Schema::create('contact_types', function (Blueprint $table) {
+            $table->uuid('id');
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
+            $table->auditables();
+            $table->primary('id');
         });
     }
 
@@ -30,6 +29,6 @@ class CreateCarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cars');
+        Schema::dropIfExists('contact_types');
     }
 }

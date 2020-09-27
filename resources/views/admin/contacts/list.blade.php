@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-        Create a new <a href="{{ url('/admin/units/create') }}">Unit <i class="fas fa-user-plus"></i></a>
+            Create a new <a href="{{ url('/admin/contact-type/create') }}">Contact Type <i class="fas fa-address-card"></i></a>
         </div>
     </div>
     
@@ -49,18 +49,19 @@
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Name</th>
-                    <th>Contact</th>
+                    <th>Description</th>
                     <th style="width: 40px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($units as $unit)
+                    @foreach ($contact_types as $ct)
                     <tr>
                         <td>{{ $loop->index+1 }}</td>
-                        <td><a href="{{ url('admin/units/'.$unit->id.'/edit') }}">{{$unit->name}}</a></td>
-                        <td>{{$unit->contact}}</td>
-                        <td><a href="{{ url('admin/units/'.$unit->id.'/edit') }}"><span class="fas fa-edit"></span></a>
+                        <td><a href="{{ url('admin/contact-type/'.$ct->id.'/edit') }}">{{$ct->name}}</a></td>
+                        <td>{{$ct->description}}</td>
+                        <td><a href="{{ url('admin/contact-type/'.$ct->id.'/edit') }}"><span class="fas fa-edit"></span></a>
                             &nbsp;&nbsp;<span class="fas fa-trash-alt"></span></td>
+                        </td>
                       </tr>
                     @endforeach
                 </tbody>

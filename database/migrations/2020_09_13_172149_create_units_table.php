@@ -21,8 +21,8 @@ class CreateUnitsTable extends Migration
             $table->string('parent_id')->nullable();
             $table->string('state')->nullable();
             $table->boolean('main_unit')->default(false);
-            $table->timestamps();
-            //$table->softDeletes();
+            $table->auditables();
+            $table->primary('id');
         });
     }
 

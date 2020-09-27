@@ -17,7 +17,6 @@ class Admin
     public function handle($request, Closure $next)
     {
         if(Auth::user()->role !== 'admin') {
-            //TODO - Invalidate user and send to login again
             Auth::logout();
             return redirect("login");
         }

@@ -9,18 +9,20 @@ states
 
 
 
+
 contacts
----------------
-uuid pk
-*name
-contact
+--------------
+uuid
+name
+mobile
+whatsapp
+email
 address
 contact_type fk (contact_types)(rukn, karkun, hamdard)
-designation
+unit_id (fk units->uuid)
 
 
-
-contact_types
+contact_types  (For Admin)
 -----------------
 uuid
 *name (ie, rukn, karkun, hamdard)
@@ -36,8 +38,23 @@ password
 unit_id (fk units->uuid)
 role (enum admin, auditor, user)
 
+account
+-----------------
+uuid pk
+name 
+description
+init_balance
+account_type enum()
+unit_id (fk units->uuid)
 
+ledger
+------------
+uuid pk
+transaction_id
+account_id
+transaction_type (Income, Expence)
 
+ 
 
 
 

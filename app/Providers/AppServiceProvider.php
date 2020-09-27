@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Schema\Blueprint;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Blueprint::macro('auditables', function(){
+            $this->uuid('created_by')->default('1');
+            $this->uuid('updated_by')->default('1');
+            $this->timestamps();
+        });
     }
 }

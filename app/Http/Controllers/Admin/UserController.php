@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Unit;
+use App\Models\AccessHistory;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -120,4 +121,16 @@ class UserController extends Controller
     {
         //
     }
+
+    public function accessHistory(User $user)
+    {
+        $histories = AccessHistory::where('user_id', $user->id)->orderBy('last_login_at', 'desc')->paginate(10);
+        return view('admin.users.access_history', [
+            'histories' => $histories, 
+            'user' => $user
+        ]);
+        
+    }
+    
+
 }

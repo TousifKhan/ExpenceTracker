@@ -43,4 +43,9 @@ class User extends Authenticatable
         //TODO: withDefault is a temp fix, will remove it later
         return $this->belongsTo(Unit::class)->withDefault(['id'=> Str::random(10)]);
     }
+
+    public function history() {
+        return $this->hasMany(AccessHistory::class);
+    }
+
 }

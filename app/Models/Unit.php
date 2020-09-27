@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\User;
+use App\Models\BaseModel;
 
-class Unit extends Model
+class Unit extends BaseModel
 {
     //use SoftDeletes;
 

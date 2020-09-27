@@ -26,7 +26,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-        Register a new <a href="{{ url('/admin/users/create') }}">User <i class="fas fa-user-plus"></i></a>
+        Register a new <a href="{{ url('/admin/users/create') }}"> User <i class="fas fa-user-plus pl-1"></i></a>
         </div>
     </div>
     
@@ -35,7 +35,7 @@
         <!-- Default box -->
         <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Title</h3>
+            <h3 class="card-title">User List</h3>
             <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
                 <i class="fas fa-minus"></i></button>
@@ -51,17 +51,24 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th style="width: 80px">Action</th>
+                    <th style="width: 120px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                     <tr>
-                        <td>1.</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td><a href="{{ url('admin/users/'.$user->id.'/edit') }}">{{$user->name}}</a></td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->role}}</td>
-                        <td><span class="fas fa-user-edit"></span>&nbsp;&nbsp;<span class="fas fa-user-slash"></span></td>
+                        <td><a href="{{ url('admin/users/'.$user->id.'/edit') }}"><span class="fas fa-edit"></span></a>
+                            <span class="fas fa-trash-alt pl-2"></span>
+                            @if (count($user->history) > 0)
+                                <a href="{{ url('admin/users/'.$user->id.'/access-history') }}">
+                                    <span class="fas fa-history pl-2"></span>
+                                </a>
+                            @endif
+                        </td>
                       </tr>
                     @endforeach
                 </tbody>
