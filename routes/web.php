@@ -35,9 +35,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function () {
 
     //Contact Type
     Route::get('contacts',     'Admin\ContactTypeController@index');
-    Route::resource('contact-type',   'Admin\ContactTypeController');
+    Route::resource('contact-type',  'Admin\ContactTypeController');
     //Route::post('contacts/type/create',  'Admin\ContactTypeController@store');
-
+    Route::resource('contact-type',  'Admin\ContactTypeController');
+    Route::resource('income-type',   'Admin\IncomeTypeController');
+    Route::resource('expence-type',  'Admin\ExpenceTypeController');
     
 });
 

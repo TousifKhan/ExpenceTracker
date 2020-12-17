@@ -38,21 +38,23 @@ password
 unit_id (fk units->uuid)
 role (enum admin, auditor, user)
 
-account
+IncomeCategory (income_head)
 -----------------
-uuid pk
-name 
+uuid
+*name (ie, Zakat, Fitra, Enayat)
 description
-init_balance
-account_type enum()
-unit_id (fk units->uuid)
 
-ledger
-------------
-uuid pk
-transaction_id
-account_id
-transaction_type (Income, Expence)
+ExpenceCategory (expence_head)
+-----------------
+uuid
+*name (ie, Dawat, Tanzeem, Tarbiyat)
+parent_id
+description
+
+
+expences
+---------------
+
 
  
 
